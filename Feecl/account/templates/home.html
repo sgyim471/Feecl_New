@@ -1,0 +1,33 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Feecl</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login.css' %}">
+</head>
+<body width="100%" height="100%">
+    
+    <form action='{%url "login" %}' method="POST" class="loginForm">
+        {% csrf_token %}
+        <h1>FEECL</h1>
+        <div class="idForm">
+            <input type="text" name='username' class="id" placeholder="ID">
+        </div>
+        <div class="passForm">
+            <input type="password" name='password' class="pw" placeholder="PW">
+        </div>
+        <input type="submit" class="btn" value='LOG IN'>
+        </input>
+        <p style="color:red;">{{error}}</p>
+        <br>
+        <br>
+        <div class="bottomText">
+            <p>계정이 없나요? <a href="http://127.0.0.1:8000/main/signup/">회원가입하기</a></p>
+        </div>
+        <div class="bottomText2">
+            또는 <a href="{%url 'guest'%}">게스트로 로그인하기</a>
+        </div>
+    </form>    
+</body>
+</html>

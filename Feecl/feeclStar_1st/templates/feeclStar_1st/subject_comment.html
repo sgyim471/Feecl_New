@@ -1,0 +1,32 @@
+{% extends 'base1.html' %}
+
+{%block content%}
+<div class='comment_wrapper'>
+    <h2>Rate & Comment</h3>
+    <form acton="." method="POST">
+    {% csrf_token %}
+      <div class="container2">
+          <div class="star-rating">
+            <input type="radio" name="comment_star" value="5" id="rate-5">
+            <label for="rate-5" class="fas fa-star"></label>
+            <input type="radio" name="comment_star" value="4" id="rate-4">
+            <label for="rate-4" class="fas fa-star"></label>
+            <input type="radio" name="comment_star" value="3" id="rate-3">
+            <label for="rate-3" class="fas fa-star"></label>
+            <input type="radio" name="comment_star" value="2" id="rate-2">
+            <label for="rate-2" class="fas fa-star"></label>
+            <input type="radio" name="comment_star" value="1" id="rate-1">
+            <label for="rate-1" class="fas fa-star"></label>
+          </div>
+          <br>
+          <textarea id="contents" name='comment_text' placeholder='과목에 대한 리뷰를 남겨주세요'></textarea> 
+    </div>
+    <span id = "sp01">0/400</span>
+    <br>
+    <input type="submit" id='submit' calss='submit_comment' value = "Upload">
+    <button type='button' onclick='history.back()'>Cancel</button>
+    <p style="color: red;">{{error}}</p>
+  </form>
+  
+</div>
+{%endblock%}

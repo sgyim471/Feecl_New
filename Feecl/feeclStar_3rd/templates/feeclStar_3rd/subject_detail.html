@@ -1,0 +1,73 @@
+{% extends 'base3.html' %}
+
+{%block content%}
+    <div class='title'>
+        <div class='about'>
+            <ul>
+                <li class='subjectName'>{{subject.subject_name}}</li>
+                {%if subject.subject_star != 0%}
+                <li class='subjectStar'>{{subject.subject_star}}</li>
+                {%else%}
+                <li class='subjectStar'>💬</li>
+                {%endif%}
+            </ul>
+            <p>교사 : {{subject.subject_teacher}}</p>
+        </div>
+        
+    </div>
+    <div class='under_title'>
+        <div class='class_time'>
+            <img class='clock_image' src='https://imgur.com/49nZRgR.png'>
+            <p>{{subject.subject_credit}}h</p>
+        </div>
+        <div class='comment_count'>
+            <img  class='comment_image' src='https://imgur.com/uTDdJkG.png'>
+            <p>{{comment|length}}</p>
+        </div>
+    </div>
+    <br>
+    <div class='main_content'>
+        <div class='comment_btn'>
+            <button type="button" onclick="location.href='{% url 'create_3' pk=subject.id %}'">Comment</button> 
+        </div>
+        <br><br>
+        <br><br>
+        <div class='comments_content'>
+            {% for comment in comment %}
+            <script>
+                var starWidth = 60;
+            </script>
+            <div class='each_comments'>
+                <div class='each_comments_top'>
+                    <img src='https://imgur.com/emiOdPz.png'>
+                    <div class='top_wrapper'>
+                        <div class="star-ratings">
+                            <div 
+                            class="star-ratings-fill space-x-2 text-lg"
+                            style='width:{{comment.comment_starWidth}}%'
+                            >
+                                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                            </div>
+                            <div class="star-ratings-base space-x-2 text-lg">
+                                <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                            </div>
+                        </div>
+                        <ul class='comments'>  
+                            <li>{{comment.writer_generation}}기</li>
+                            <li>{{comment.updated_at|date:'Y.m.d'}}</li> 
+                        </ul>
+                    </div>
+                    {%if pk == comment.writer_id%}
+                    <a href="{%url 'delete_3' pk=comment.id pk2=subject.id%}" class='delete_button'><img src='https://imgur.com/VcDwEXL.png'></a>
+                    {%endif%}
+                </div>
+                
+                <p>{{comment.comment_text}}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+{%endblock%}
+
+

@@ -1,0 +1,70 @@
+{%extends 'base3.html'%}
+
+{%block content%}
+<div class='sidebar'>
+    <div class='sideTop'>
+        <ul>
+            <li><a class='not_now' href="http://127.0.0.1:8000/starRating/1/">1</a></li>
+            <li><a class='not_now' href="http://127.0.0.1:8000/starRating/2/">2</a></li>
+            <li><a class='now' href="http://127.0.0.1:8000/starRating/3/">3</a></li>
+        </ul>
+    </div>
+    <div class='sideSubject'>
+        <ul>
+            {% for subject in subject %}
+            {%if writer_id != 0%}
+            <li><a href='./detail/{{subject.pk}}'>{{subject.subject_name}}</a></li>
+            {%elif writer_id == 0%}
+            <li><a href=""><p onclick="alert('회원만 접근할 수 있는 페이지입니다')">{{subject.subject_name}}</p></a></li>
+            {%endif%}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+<div class='searchBar'>
+    <form action='' method='GET'>
+    <input type='text' name='search' id='search' placeholder='Search' autocomplete='off'>
+    <label for='search'><i class='fa fa-search' aria-hidden='true'></i></label>
+    </form>
+</div>
+<div class="container">
+    <div class="subject">
+        {% for subject in subjectList%}
+        {%if writer_id != 0%}
+        <div class="subject-item" tabindex="0" onclick="location.href='./detail/{{subject.pk}}';">
+            <ul>
+                <li>{{subject.subject_name}}</li>
+                <li>{{subject.subject_teacher}}</li>
+                {% if subject.subject_star == 0%}
+                <li>-</li>
+                {%else%}
+                <li>{{subject.subject_star}}</li>
+                {%endif%}
+            </ul>
+        </div>
+        {%elif writer_id == 0%}
+        <div class="subject-item" tabindex="0" onclick="alert('회원만 접근할 수 있는 페이지입니다')">
+            <ul>
+                <li>{{subject.subject_name}}</li>
+                <li>{{subject.subject_teacher}}</li>
+                {% if subject.subject_star == 0%}
+                <li>-</li>
+                {%else%}
+                <li>{{subject.subject_star}}</li>
+                {%endif%}
+            </ul>
+        </div>
+        {%endif%}
+        {% endfor %}
+        {%if subjectList|length|add:"2"|divisibleby:3%}
+        <div class='subject-hide' tabindex='0'>
+        </div>
+        <div class='subject-hide' tabindex='0'>
+        </div>
+        {%elif subjectList|length|add:"1"|divisibleby:3%}
+        <div class='subject-hide' tabindex='0'>
+        </div>
+        {%endif%}   
+    </div>
+</div>
+{%endblock%}

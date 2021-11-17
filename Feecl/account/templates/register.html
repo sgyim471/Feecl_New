@@ -1,0 +1,33 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Feecl</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+</head>
+<body>
+    <form method = "POST" action = "." class='registerForm'>  
+    {% csrf_token %}
+        <h2>Sign Up</h2>
+        <div class='nameForm'>
+            <input type="text" class="put" id="username" placeholder="사용자 이름" name="username">   
+        </div>
+        <div class='passForm'>
+            <input type="password" class="put" id="password" placeholder="비밀번호" name= "password">
+        </div>
+        <div class='passCheckForm'>   
+            <input type= "password" class="put" id="re_password" placeholder="비밀번호 확인" name = "re_password">
+        </div>
+        <div class='genForm'>
+            <input type= "number" min="1" class="put" id="generation" placeholder="기수" name = "generation">
+        </div>
+        <div class='checkForm'>
+            <input type= "text" class="put" id="student_code" placeholder="학생코드" name = "student_code">
+        </div>
+        <br>
+        <p style="color:red;">{{error}}</p>
+        <input type="submit" value="Submit" id="submit" class='registerButton'>
+    </form>
+</body>
+</html>

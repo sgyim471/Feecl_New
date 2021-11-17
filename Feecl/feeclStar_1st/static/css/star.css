@@ -1,0 +1,127 @@
+*{
+  font-family: 'InfinitySans-RegularA1';
+}
+@font-face {
+  font-family: 'InfinitySans-RegularA1';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.comment_wrapper{
+    margin: 0 auto;
+    width: 40%;
+    position: relative;
+    padding-top: 35px;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+
+.comment_wrapper h2{
+    color:#363636;
+    margin-bottom: 10px;
+}
+
+.comment_wrapper .container2{
+    text-align: center;
+    background-color: #fff;
+    border: 1.5px solid rgb(197, 197, 197);
+    border-radius: 20px 20px 0 0;
+}
+
+.star-rating {
+  margin-left: 30px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row-reverse;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  justify-content: space-around;
+  padding: 0 0.2em;
+  text-align: center;
+  width: 5em;
+}
+ 
+.star-rating input {
+  display: none;
+}
+ 
+.star-rating label {
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2.3px;
+  -webkit-text-stroke-color: #2b2a29;
+  cursor: pointer;
+  padding-left: 5px;
+}
+ 
+.star-rating :checked ~ label {
+  -webkit-text-fill-color: gold;
+}
+ 
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  -webkit-text-fill-color: gold;
+}
+
+.comment_wrapper textarea{
+    font-size: 1em;
+    width: 100%;
+    height: 260px;
+    resize: none;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.comment_wrapper button{
+    float:right;
+    font-size: 1.2em;
+    width: auto;
+    padding: 10px;
+    height: 50px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: #f57676; 
+    color:aliceblue;
+    border: none;
+    font-weight: 600;
+    cursor:pointer;
+    transition: 0.4s;
+    border-radius: 15px;
+    display:inline;
+}
+
+.comment_wrapper button:hover{
+    background: #d45b5b; 
+    color:aliceblue;
+    transition: 0.4s;
+}
+
+.comment_wrapper input[type='submit']{
+    float:right;
+    font-size: 1.2em;
+    width: auto;
+    padding: 10px;
+    height: 50px;
+    background: #76BDF5; 
+    color:aliceblue;
+    border: none;
+    font-weight: 600;
+    cursor:pointer;
+    transition: 0.4s;
+    border-radius: 15px;
+    display:inline;
+    margin-top: 10px;
+  }
+
+.comment_wrapper input[type='submit']:hover{
+    background: #5597ca; 
+    color:aliceblue;
+    transition: 0.4s;
+}
+
+.comment_wrapper span{
+    float: right;
+}
+

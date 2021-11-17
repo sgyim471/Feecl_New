@@ -1,0 +1,31 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Feecl</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    
+</head>
+<body>
+    <header>
+        <a href="#" class='logo'>Feecl</a>
+        <ul>
+            <li><a href='http://127.0.0.1:8000/starRating/'>StarRating</a></li>
+            <li><a href='#'>Board</a></li>
+            <li><a href="#">LogOut</a></li>
+        </ul>
+    </header>
+    <main>
+        {%block content%}
+        {%endblock%}
+    </main>
+    <script type='text/javascript'>
+        window.addEventListener('scroll',function(){
+            var header = document.querySelector('header');
+            header.classList.toggle('sticky',window.scrollY > 0);
+        })
+    </script>
+</body>
+</html>

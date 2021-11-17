@@ -1,0 +1,222 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family: 'InfinitySans-RegularA1';
+  }
+
+  @font-face {
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.title{
+    margin: 0 auto;
+    width: 60%;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    border-bottom: 2px solid rgb(63, 63, 63);
+}
+
+.title .about {
+    float: left;
+    width: 80%;
+}
+
+.title .about ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.title .about ul li{
+    float: left;
+}
+
+.subjectName {
+    font-size: 2.8em;
+    line-height: auto;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.subjectStar{
+    font-size: 2.8em;
+    color:#76BDF5;
+    line-height: auto;
+    font-weight: 600;
+    margin-left: 10px;
+}
+.about p{
+    font-size: 1.4em;
+    line-height: auto;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 3px;
+}
+
+.under_title{
+    margin: 0 auto;
+    width: 60%;
+    position: relative;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.comment_count{
+    float: left;
+    margin-left: 10px;
+}
+.comment_count .comment_image{
+    float: left;
+    height: 20px;
+}
+
+.comment_count p{
+    float: left;
+    font-size: 1em;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color:#6B6B6B;
+}
+
+.class_time{
+    float: left;
+}
+.class_time .clock_image{
+    float: left;
+    height: 20px;
+}
+
+.class_time p{
+    float: left;
+    font-size: 1em;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color:#6B6B6B;
+}
+
+.comment_btn{
+    float: left;
+    width: 20%;
+}
+
+.comment_btn button{
+    font-size: 1.2em;
+    width: auto;
+    padding: 10px;
+    height: 50px;
+    background: #76BDF5; 
+    color:aliceblue;
+    border: none;
+    font-weight: 600;
+    cursor:pointer;
+    transition: 0.4s;
+    border-radius: 15px;
+    display:inline;
+  }
+
+  .comment_btn button:hover{
+    background: #5597ca; 
+    color:aliceblue;
+    transition: 0.4s;
+}
+
+.main_content{
+    margin: 0 auto;
+    width: 60%;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+
+.star-ratings {
+    margin-top: 10px;
+    color: #aaa9a9; 
+    position: relative;
+    unicode-bidi: bidi-override;
+    width: max-content;
+    -webkit-text-fill-color: transparent; 
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: #2b2a29;
+  }
+   
+  .star-ratings-fill {
+    color: #fff58c;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    -webkit-text-fill-color: gold;
+  }
+   
+  .star-ratings-base {
+    z-index: 0;
+    padding: 0;
+  }
+
+  .each_comments{
+      height:auto;
+      border-bottom: 1.5px solid rgb(179, 179, 179);
+  }
+
+  .each_comments_top{
+      height: 60px;
+  }
+  .each_comments_top img{
+      margin-top: 12.5px;
+      margin-right: 10px;
+      height: 45px;
+      float: left;
+  }
+
+  .top_wrapper{
+    float:left;
+  }
+
+.comments{
+    list-style-type: none;
+    margin-top: 5px;
+    padding: 0;
+}
+
+.comments li{
+    float:left; 
+}
+
+.comments li:nth-child(2){
+    margin-left: 5px;
+    border-left: 1px solid rgb(173, 173, 173);
+    color:rgb(173, 173, 173);
+    padding-left: 5px;
+}
+
+
+.each_comments_top a{
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    float:right;
+}
+
+.each_comments_top a img{
+    height: 20px;
+}
+
+.each_comments p{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
