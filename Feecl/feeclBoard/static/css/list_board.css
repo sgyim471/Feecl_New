@@ -61,3 +61,11 @@ colgroup {
 .bottom_view{
     text-align: center;
 }
+
+
+table tr td{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 600px;
+}
