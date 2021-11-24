@@ -26,6 +26,16 @@
     <input type='text' name='search' id='search' placeholder='Search' autocomplete='off'>
     <label for='search'><i class='fa fa-search' aria-hidden='true'></i></label>
     </form>
+    <div class='semester_select'>
+        <form action='' method='GET'>  
+            <select name="semester" id='semester'>
+                <option value="none">학기선택</option>
+                <option value="one">1학기</option>
+                <option value="two">2학기</option>
+            </select>
+            <input type='submit'>
+        </form>
+    </div>
 </div>
 <div class="container">
     <div class="subject">
@@ -34,7 +44,7 @@
         <div class="subject-item" tabindex="0" onclick="location.href='./detail/{{subject.pk}}';">
             <ul>
                 <li>{{subject.subject_name}}</li>
-                <li>{{subject.subject_teacher}}</li>
+                <li>{{subject.subject_teacher}} / 3-{{subject.subject_semester}}</li>
                 {% if subject.subject_star == 0%}
                 <li>-</li>
                 {%else%}

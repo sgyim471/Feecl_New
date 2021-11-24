@@ -1,0 +1,63 @@
+.list_container{
+    margin: 0 auto;
+    width: 70%;
+    position: relative;
+    padding-top: 20px;
+}
+.write_button{
+    font-size: 1.2em;
+    width: auto;
+    padding: 10px;
+    height: 50px;
+    background: #68D6CB; 
+    color:aliceblue;
+    border: none;
+    font-weight: 600;
+    cursor:pointer;
+    transition: 0.4s;
+    border-radius: 15px;
+    display:inline;
+}
+
+table{
+    margin-top: 15px;
+    width:100%;
+    border-spacing: 0;
+}
+
+td{
+    padding:10px;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: rgb(179, 179, 179);
+}
+tr{
+    display: table-row;
+}
+th{
+    height: 40px;
+    border-width: 2px 0 1px;
+    border-style: solid;
+    border-color: #46a39a;
+    vertical-align: middle;
+    text-align: center;
+    color: #333;
+}
+
+colgroup {
+    display: table-column-group;
+}
+
+
+.bottom_writer{
+    text-align: center;
+}
+
+.bottom_date{
+    text-align: center;
+    font-size: 0.8em;
+}
+
+.bottom_view{
+    text-align: center;
+}

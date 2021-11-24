@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'feeclStar',
     'feeclStar_1st',
     'feeclStar_3rd',
-    
+    'main',
+    'feeclBoard',
 ]
 
 MIDDLEWARE = [

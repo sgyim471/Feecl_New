@@ -1,0 +1,96 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+    <title>Feecl</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <header>
+    <a href="#" class='logo'>Feecl</a>
+    <div class='navbar_wrapper_main'>
+    {%if user != 0%}
+    <ul>
+        <li><a href="{%url 'logoutMain'%}">Logout</a></li>
+    </ul>
+    {%elif user == 0 %}
+    <ul>
+        <li><a href='http://127.0.0.1:8000/main'>Login</a></li>
+        <li><a href='http://127.0.0.1:8000/main/signup'>Signup</a></li>
+    </ul>
+    {%else%}
+    <ul>
+        <li><a href='http://127.0.0.1:8000/main'>Login</a></li>
+        <li><a href='http://127.0.0.1:8000/main/signup'>Signup</a></li>
+    </ul>
+    {%endif%}
+    <div class='school-wrapper'>
+      <div class='SchoolSearchBar'>
+          <form action="{%url 'schoolSearch'%}" method='GET'>
+            <input type='text' name='search' id='search' placeholder='Search'>
+            <label for='SchoolSearch'><i class='fa fa-search' aria-hidden='true'></i></label>
+          </form>
+      </div>  
+    
+  </div>
+    </div>
+  </header>
+  <div class="searchMain">
+    {% for school in schoolList%}
+      {%if user != 0%}
+        {%if school.school_name == '인천과학예술영재학교'%}
+          <div class="school-item" tabindex="0" onclick="location.href='http://127.0.0.1:8000/starRating/1/'">
+            <li>{{school.school_name}}</li>
+        </div>
+        {%else%}
+        <div class="school-item" tabindex="0">
+            <li>{{school.school_name}}</li>
+        </div>
+        {%endif%}
+      {%elif user == 0 %}
+        <div class="school-item" tabindex="0" onclick="alert('로그인 후 사용해 주십시오')">
+            <li>{{school.school_name}}</li>
+        </div>
+      {%endif%}
+    {%endfor%}
+  </div>
+  <svg class="intro" viewbox="0 0 200 86">
+    <text text-anchor="start" x="10" y="30" class="text text-stroke" clip-path="url(#text1)">Feedback</text>
+    <text text-anchor="start" x="10" y="50" class="text text-stroke" clip-path="url(#text2)">Your</text>
+    <text text-anchor="start" x="10" y="70" class="text text-stroke" clip-path="url(#text3)">Class</text>
+    <text text-anchor="start" x="10" y="30" class="text text-stroke text-stroke-2" clip-path="url(#text1)">Fee</text>
+    <text text-anchor="start" x="10" y="50" class="text text-stroke text-stroke-2" clip-path="url(#text2)"></text>
+    <text text-anchor="start" x="10" y="70" class="text text-stroke text-stroke-2" clip-path="url(#text3)">Cl</text>
+    <defs>
+      <clipPath id="text1">
+        <text text-anchor="start" x="10" y="30" class="text">Feedback</text>
+      </clipPath>
+      <clipPath id="text2">
+        <text text-anchor="start" x="10" y="50" class="text">Your</text>
+      </clipPath>
+      <clipPath id="text3">
+        <text text-anchor="start" x="10" y="70" class="text">Class</text>
+      </clipPath>
+    </defs>
+  </svg>
+  <br><br>
+  
+    
+    <script type='text/javascript'>
+      $(function() {
+        $('.intro').addClass('go');
+      
+        $('.reload').click(function() {
+          $('.intro').removeClass('go').delay(200).queue(function(next) {
+            $('.intro').addClass('go');
+            next();
+          });
+      
+        });
+      })
+    </script>
+</body>
+</html>

@@ -22,4 +22,6 @@ urlpatterns = [
     path('starRating/2/',include('feeclStar.urls')),
     path('starRating/1/',include('feeclStar_1st.urls')),
     path('starRating/3/',include('feeclStar_3rd.urls')),
+    path('', include('main.urls')),
+    path('board/', include('feeclBoard.urls')),
 ]

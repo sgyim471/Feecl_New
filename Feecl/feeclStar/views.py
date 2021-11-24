@@ -1,26 +1,33 @@
-from django.shortcuts import render,redirect
-from django.views.generic.list import ListView 
+from django.shortcuts import render,redirect 
 from .models import Subject,Comment
 from account.models import User
-from django.views.generic.edit import CreateView,UpdateView,DeleteView
 from django.urls import reverse
-from django.views.generic.detail import DetailView
 from django.http.response import HttpResponse, HttpResponseRedirect
 
 
 def subjectList(request):
     try:
-        search = request.GET['search']
-        subjectList = Subject.objects.filter(subject_name__icontains=search).order_by('-subject_star')
-        subject = Subject.objects.all().order_by('-subject_star')
+        select_semester = request.GET['semester']
+        if select_semester == 'none':
+                subject = Subject.objects.all().order_by('-subject_star')
+        elif select_semester == 'one':
+            subject = Subject.objects.filter(subject_semester = 1).order_by('-subject_star')
+        elif select_semester == 'two':
+            subject = Subject.objects.filter(subject_semester = 2).order_by('-subject_star')
         writer_id = request.session['user']
-        return render(request,'feeclStar/subject_list.html',{'subject':subject,'subjectList':subjectList,'writer_id':writer_id}) 
+        return render(request,'feeclStar/subject_2_list.html',{'subject':subject,'subjectList':subject,'writer_id':writer_id})
     except:
-        subject = Subject.objects.all().order_by('-subject_star')
-        writer_id = request.session['user']
-        return render(request,'feeclStar/subject_list.html',{'subject':subject,'subjectList':subject,'writer_id':writer_id})
-
-    
+        try:
+            search = request.GET['search']
+            subjectList = Subject.objects.filter(subject_name__icontains=search).order_by('-subject_star')
+            subject = Subject.objects.all().order_by('-subject_star')
+            writer_id = request.session['user']
+            return render(request,'feeclStar/subject_2_list.html',{'subject':subject,'subjectList':subjectList,'writer_id':writer_id}) 
+        except:
+            subject = Subject.objects.all().order_by('-subject_star')
+            writer_id = request.session['user']
+            return render(request,'feeclStar/subject_2_list.html',{'subject':subject,'subjectList':subject,'writer_id':writer_id})
+        
 def detail(request,pk):
     writer_id = request.session['user']
     subject = Subject.objects.get(pk=pk)
@@ -35,7 +42,7 @@ def detail(request,pk):
     elif total == 0:
         subject.subject_star = 0
         subject.save()
-    return render(request,'feeclStar/subject_detail.html',{'subject':subject,'comment':comment,'pk':writer_id})
+    return render(request,'feeclStar/subject_2_detail.html',{'subject':subject,'comment':comment,'pk':writer_id})
 
 def delete(request,pk,pk2):
     Comment.objects.filter(id=pk).delete()
@@ -45,7 +52,6 @@ def create(request,pk):
     if request.method == "POST":
         comment_text = request.POST.get('comment_text',None)
         comment_star = request.POST.get('comment_star',None)
-        
         if comment_star != None:
             comment_starWidth = int(comment_star)*20
         
@@ -58,7 +64,7 @@ def create(request,pk):
             CommentExist = Comment.objects.get(writer_id = writer_id)
             if CommentExist.subject_id.id == pk:
                 res_data['error'] = '이미 리뷰를 남긴 과목입니다'
-                return render(request,'feeclStar/subject_comment.html',res_data)
+                return render(request,'feeclStar/subject_2_comment.html',res_data)
         except:
             pass
         if not(comment_star and comment_text):
@@ -68,11 +74,10 @@ def create(request,pk):
             write.save()
             return HttpResponseRedirect(reverse('detail',kwargs={'pk':pk}))
 
-        return render(request,'feeclStar/subject_comment.html',res_data)
-    
+        return render(request,'feeclStar/subject_2_comment.html',res_data)
     else:
-        return render(request,'feeclStar/subject_comment.html')
+        return render(request,'feeclStar/subject_2_comment.html')
 
 def logout(request):
     request.session.pop('user')
-    return redirect('/main')
+    return redirect('/')

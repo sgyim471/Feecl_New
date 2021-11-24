@@ -1,0 +1,51 @@
+{% extends 'base_board.html' %}
+
+{%block content%}
+<div class="list_container">
+    <button type='button' class='write_button'onclick='location.href="./post"'>POST</button>
+    <table class="table">
+        <colgroup>
+            <col style='width:5%'>
+            <col style='width:60%'>
+            <col style='width:10%'>
+            <col style='width:15%'>
+            <col style='width:10%'>
+        </colgroup>
+        <thead class="thead-light">
+        <tr>
+            <th scope="col" >No.</th>
+            <th scope="col" >제목</th>
+            <th scope="col" >작성자</th>
+            <th scope="col" >작성일</th>
+            <th scope="col" >조회 수</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for board in boards %}
+        <tr class="board_content">
+            <td class='bottom_number'>
+                {{forloop.revcounter}}
+            </td>
+            <td class='bottom_title'>
+                <a href="./post/{{ board.id }}">
+                    <span>{{ board.title }}</span>
+                </a>
+            </td>
+            <td class='bottom_writer'>
+                <span>{{ board.author }}</span>
+            </td>
+            <td class='bottom_date'>
+                <span>{{ board.created_date | date:"Y.m.d" }}</span>
+            </td>
+            <td class='bottom_view'>
+                <span>{{board.view_count}}</span>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{%endblock%}
+
+
+

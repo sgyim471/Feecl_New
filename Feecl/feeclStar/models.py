@@ -7,6 +7,7 @@ class Subject(models.Model):
     subject_teacher = models.CharField('Teacher', max_length=50)
     subject_star = models.FloatField('Star',default=0, null=True)
     subject_credit = models.PositiveIntegerField(default=1)
+    subject_semester = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return "과목 : " + self.subject_name
@@ -22,6 +23,6 @@ class Comment(models.Model):
     subject_id = models.ForeignKey('Subject',on_delete=models.CASCADE)
     writer_id = models.PositiveIntegerField(default=1)
     writer_generation = models.PositiveIntegerField(default=1)
-
+    
     def __str__(self):
         return '별점 : ' + str(self.comment_star)

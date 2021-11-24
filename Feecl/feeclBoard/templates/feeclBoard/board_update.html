@@ -1,0 +1,16 @@
+{% extends 'base_board.html' %}
+
+{%block content%}
+<div class='board_wrapper'>
+<form action="{%url 'update_board' pk=board.id%}" method="POST">
+    {% csrf_token %}
+    <div class='container_board'>
+        <input type="text" name="title" class="board_title" id="inputTitle" placeholder='제목' value='{{board.title}}' required>
+        <textarea type="text" name="content" class="board_content" id="inputContent" placeholder='내용을 입력해주세요.' required>{{board.content}}</textarea>
+    </div>
+    <input type="submit" value="Update" class="board_submit">
+    <button type='button' onclick='history.back()'>Cancel</button>
+    <p style="color: red;">{{error}}</p>
+</form>
+</div>
+{%endblock%}

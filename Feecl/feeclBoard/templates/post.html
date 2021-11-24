@@ -1,0 +1,17 @@
+{% extends 'base_board.html' %}
+
+{%block content%}
+<div class="board_wrapper">
+    <h2>Post</h2>
+    <form action="{%url 'post'%}" method="POST">
+        {% csrf_token %}
+        <div class='container_board'>
+            <input type="text" name="title" class="board_title" id="inputTitle" placeholder='제목'>
+            <textarea type="text" name="content" class="board_content" id="txtArea" placeholder='내용을 입력해주세요.'></textarea>
+        </div>
+        <input class="board_submit" type="submit" role="button" value="Upload">
+        <button type='button' onclick='history.back()'>Cancel</button>
+        <p style="color: red;">{{error}}</p>
+    </form>
+</div>
+{%endblock%}

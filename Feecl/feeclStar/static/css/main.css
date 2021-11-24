@@ -40,19 +40,19 @@
 }
 
 .sideTop ul li .not_now{
-    background-color: #76BDF5;
+    background-color: #68D6CB;
     color: aliceblue;
 }
 
 .sideTop ul li .not_now:hover{
     background-color: aliceblue;
-    color: #76BDF5;
+    color: #68D6CB;
     transition: 0.4s;
 }
 
 .sideTop ul li .now{
     background-color: aliceblue;
-    color: #76BDF5;
+    color: #68D6CB;
 }
 
 
@@ -65,7 +65,7 @@
 }
 
 .sideSubject ul li a{
-    background-color: #D2E9EF;
+    background-color: #b2e4df;
     display: block;
     color: #000;
     padding: 20px;
@@ -77,8 +77,7 @@
 }
 
 .sideSubject ul li a:hover{
-    background-color: #b5d2da;
-    border-radius:0 0 10px 0;
+    background-color: #a0c9c5;
     transition: 0.3s;
 }
 
@@ -94,11 +93,30 @@
     font-size:1.2em;
     border:none; 
     outline: none; 
-    background-color:#EAEAEA; 
+    background-color:#F2EDEB; 
     border-bottom:2px solid #000000;
     margin-left: 2rem; 
 }
 
+.semester_select{
+    margin-left: 2rem;
+    width: 150px;
+    height: 25px;
+    margin-top: 12px;
+}
+.searchBar select{
+    width: 100px;
+    height: 25px;
+}
+
+.semester_select input[type='submit']{
+    width: auto;
+    height: 25px;
+    padding-left: 3px;
+    padding-right: 3px;
+    cursor: pointer;
+    text-align: center;
+}
 
 .container {
     max-width: 93.5rem;
@@ -106,7 +124,6 @@
     padding: 0 2rem;
     width: auto;
 }
-
 
 .subject {
     display: flex;
@@ -120,17 +137,22 @@
     margin: 1.3rem;
     cursor: pointer;
     text-align: center;
-    border: 2px solid #5889B2; 
+    border: 2px solid #4cb3a8; 
     border-radius: 15px;
-    background-color: #DDE5F0;
+    background-color: #F2EDEB;
     height: 22rem;
     transition: 0.6s;
 }
 
 .subject-item:hover{
-    background-color: #4F8BB0;
-    border-color:#4F8BB0;
+    background-color: #b2e4df;
+    border-color:#3a3a3a;
+    opacity: 0.5;
     transition: 0.6s;
+}
+
+.subject-item:hover li{
+    color: #000;
 }
 
 .subject-hide {
@@ -138,8 +160,8 @@
     flex: 1 0 22rem;
     margin: 1.3rem;
     text-align: center;
-    border: 2px solid #EAEAEA; 
-    background-color: #EAEAEA;
+    border: 2px solid #F2EDEB; 
+    background-color: #F2EDEB;
     height: 22rem;
 }
 

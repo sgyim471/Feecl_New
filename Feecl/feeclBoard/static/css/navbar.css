@@ -1,19 +1,26 @@
-@import url('hhtps://fonts.googleapis.com/csss?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
 *{
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    font-family:'Poppins',sans-serif;
+    font-family: 'InfinitySans-RegularA1';
 }
+
+@font-face {
+    font-family: 'SEBANG_Gothic_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body
 {
-    background-color: #EAEAEA;
+    background-color: #F2EDEB;
     min-height: 100vh;
 }
 
 header
 {
-    background-color: #68D6CB;
+    background-color: #F2EDEB;
     position: fixed;
     top:0;
     left: 0;
@@ -25,7 +32,8 @@ header
     transition: 0.6s;
     padding: 0px 100px;
     z-index: 10000;
-    border-bottom: 2px solid rgba(41, 67, 92, 0.377);
+    border-bottom: 1px solid #DBDBDB;
+    box-shadow: 0 4px 11px rgb(0 0 0 / 10%);
     
 }
 
@@ -33,9 +41,9 @@ header .logo
 {
     position: relative;
     font-weight: 700;
-    color: #fff;
+    color: #68D6CB;
     text-decoration: none;
-    font-size: 2em;
+    font-size: 2.3em;
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: 0.6s;
@@ -49,30 +57,25 @@ header ul{
 header ul li{
     position: relative;
     list-style: none;
+    border-left: 1.5px solid #bbbaba;
 }
 header ul li a{
     position: relative;
     margin: 0 10px;
     text-decoration: none;
-    color: #fff;
+    color: #68D6CB;
     padding: 8px 10px;
     letter-spacing: 2px;
-    font-weight: 500px;
+    font-weight: 500;
+    font-size: 1.3em;
     transition: 0.6s;
 }
 
-header ul li a:hover{
-    background-color: rgb(255, 255, 255);
-    color: #000;
-    padding: 8px 10px;
-    border-radius: 5px;
-    transition: 0.6s
-}
 
 main{
     height: auto;
-    background-color: #EAEAEA;
-    padding-top: 100px;
+    background-color: #F2EDEB;
+    padding-top: 80px;
 }
 
 body::-webkit-scrollbar {

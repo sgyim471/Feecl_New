@@ -9,15 +9,26 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 
 def subjectList(request):
     try:
-        search = request.GET['search']
-        subjectList = Subject_1.objects.filter(subject_name__icontains=search).order_by('-subject_star')
-        subject = Subject_1.objects.all().order_by('-subject_star')
-        writer_id = request.session['user']
-        return render(request,'feeclStar_1st/subject_1_list.html',{'subject':subject,'subjectList':subjectList,'writer_id':writer_id}) 
-    except:
-        subject = Subject_1.objects.all().order_by('-subject_star')
+        select_semester = request.GET['semester']
+        if select_semester == 'none':
+                subject = Subject_1.objects.all().order_by('-subject_star')
+        elif select_semester == 'one':
+            subject = Subject_1.objects.filter(subject_semester = 1).order_by('-subject_star')
+        elif select_semester == 'two':
+            subject = Subject_1.objects.filter(subject_semester = 2).order_by('-subject_star')
         writer_id = request.session['user']
         return render(request,'feeclStar_1st/subject_1_list.html',{'subject':subject,'subjectList':subject,'writer_id':writer_id})
+    except:
+        try:
+            search = request.GET['search']
+            subjectList = Subject_1.objects.filter(subject_name__icontains=search).order_by('-subject_star')
+            subject = Subject_1.objects.all().order_by('-subject_star')
+            writer_id = request.session['user']
+            return render(request,'feeclStar_1st/subject_1_list.html',{'subject':subject,'subjectList':subjectList,'writer_id':writer_id}) 
+        except:
+            subject = Subject_1.objects.all().order_by('-subject_star')
+            writer_id = request.session['user']
+            return render(request,'feeclStar_1st/subject_1_list.html',{'subject':subject,'subjectList':subject,'writer_id':writer_id})
 
 
 
@@ -75,4 +86,4 @@ def create_1(request,pk):
 
 def logout(request):
     request.session.pop('user')
-    return redirect('/main')
+    return redirect('/')

@@ -1,0 +1,239 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    font-family: 'InfinitySans-RegularA1';
+  }
+
+  @font-face {
+    font-family: 'InfinitySans-RegularA1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/InfinitySans-RegularA1.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.board_wrapper_2{
+    margin: 0 auto;
+    width: 60%;
+}
+
+.top_board{
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    overflow: hidden;
+    border-bottom: 2px solid rgb(63, 63, 63);
+}
+
+.top_board .about_board {
+    float: left;
+    width: 100%;
+}
+
+.top_board .about_board ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.top_board .about_board ul li{
+    float: left;
+}
+
+.title_board {
+    font-size: 2.4em;
+    line-height: auto;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.author_board{
+    font-size: 1.3em;
+    color:#68D6CB;
+    line-height: auto;
+    font-weight: 600;
+    float: left;
+}
+
+.date_board{
+    font-size: 1.3em;
+    line-height: auto;
+    font-weight: 600;
+    margin-left: 10px;
+    float: left;
+}
+
+
+.board_content_2{
+    margin-top: 10px;
+    font-size: 1.1em;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.writer_button{
+    height: 50px;
+    width: 100%;
+}
+
+.button_update button{
+    float:right;
+    font-size: 1.2em;
+    width: auto;
+    padding: 10px;
+    height: 50px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: #68D6CB; 
+    color:aliceblue;
+    border: none;
+    font-weight: 600;
+    cursor:pointer;
+    transition: 0.4s;
+    border-radius: 15px;
+    display:inline;
+    letter-spacing: 2px;
+}
+
+.button_update button:hover{
+    background: #5cb9b0; 
+    color:aliceblue;
+    transition: 0.4s;
+}
+
+
+.button_delete button{
+    float:right;
+    font-size: 1.2em;
+    width: auto;
+    padding: 10px;
+    height: 50px;
+    margin-right: 10px;
+    margin-top: 10px;
+    background: #f57676; 
+    color:aliceblue;
+    border: none;
+    font-weight: 600;
+    cursor:pointer;
+    transition: 0.4s;
+    border-radius: 15px;
+    display:inline;
+    letter-spacing: 2px;
+}
+
+.button_delete button:hover{
+    background: #d45b5b; 
+    color:aliceblue;
+    transition: 0.4s;
+}
+
+.comment_number{
+    margin-top: 30px;
+    width: 100%;
+    margin-bottom: 5px;
+}
+.main_board{
+    border-top: 1.5px solid rgb(179, 179, 179);
+}
+
+
+
+.input_comment{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 25px;
+    height: 75px;
+}
+
+.input_comment textarea{
+    float: left;
+    padding: 10px;
+    resize: none;
+    outline: none;
+    border: none;
+    font-size: 1em;
+    height: 75px;
+    width: 80%;
+}
+
+.input_comment input[type='submit']{
+    float: left;
+    font-size: 1em;
+    width: auto;
+    padding: 10px;
+    height: 40px;
+    margin-left: 10px;
+    margin-top: 35px;
+    position: relative;
+    background: #74c2e6; 
+    color:aliceblue;
+    border: none;
+    font-weight: 600;
+    cursor:pointer;
+    transition: 0.4s;
+    border-radius: 15px;
+    display:inline;
+}
+
+.input_comment input[type='submit']:hover{
+    background: #5797b4; 
+    color:aliceblue;
+    transition: 0.4s;
+}
+
+.board_comment{
+    height:auto;
+    border-bottom: 1.5px solid rgb(179, 179, 179);
+}
+
+.comment_top{
+    height: 30px;
+}
+.comment_top img{
+    margin-top: 10px;
+    margin-right: 10px;
+    height: 20px;
+    float: left;
+}
+
+.comment_wrapper{
+  float:left;
+}
+
+.comment_info{
+  list-style-type: none;
+  margin-top: 10px;
+  padding: 0;
+}
+
+.comment_info li{
+  float:left; 
+}
+
+.comment_info li:nth-child(2){
+  margin-left: 5px;
+  border-left: 1px solid rgb(173, 173, 173);
+  color:rgb(173, 173, 173);
+  padding-left: 5px;
+}
+
+.board_comment p{   
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.comment_top a{
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+    float:right;
+}
+
+.comment_top a img{
+    height: 20px;
+}

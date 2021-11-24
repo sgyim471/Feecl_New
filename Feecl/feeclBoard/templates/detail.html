@@ -1,0 +1,60 @@
+{% extends 'base_board.html' %}
+
+{%block content%}
+<div class='board_wrapper_2'>
+<div class='top_board'>
+    <div class='about_board'>
+        <ul>
+            <li class='title_board'>{{board.title}}</li>
+        </ul>
+        <div class='author_board'>{{board.author}}</div>
+        <div class='date_board'>{{ board.created_date | date:"Y-m-d h:i" }}</div>
+    </div>
+    
+</div>
+<div class='board_content_2'>
+    <div class='content_text'>{{board.content}}</div>
+</div>
+<div class='writer_button'>
+    {%if board.writer_id == user_id%}
+        <div class='button_update'>
+            <button type="button" onclick="location.href='{% url 'to_update_board' pk=board.id %}'">수정</button> 
+        </div>
+        <div class='button_delete'>
+            <button type="button" onclick="location.href='{% url 'delete_board' pk=board.id %}'">삭제</button> 
+        </div>
+    {%endif%}
+</div>
+<div class='comment_number'>전체댓글 : {{comments|length}}개</div>
+<div class='main_board'>
+    <div class='input_comment'>
+        <form action="{%url 'comment_new' pk=board.id%}" method="POST">
+            {% csrf_token %}
+            <textarea type="text" name="content" class="comment_text" placeholder='댓글 작성'></textarea>
+            <input type="submit" class='comment_submit' value="작성">
+        </form>
+    </div>
+    {% for comment in comments %} 
+    <div class="board_comment">
+        <div class='comment_top'>
+            <img src='https://imgur.com/emiOdPz.png'>
+            <div class='comment_wrapper'>
+                <ul class='comment_info'>  
+                    <li>{{comment.comment_writer}}기</li>
+                    <li>{{comment.comment_created_date}}</li> 
+                </ul>
+            </div>
+            {%if user_id == comment.comment_writer_id%}
+                <a href="{%url 'delete_comment' pk=comment.id pk2=board.id%}" class='comment_delete'><img src='https://imgur.com/VcDwEXL.png'></a>
+            {%endif%}
+        </div>
+        <p class='content_comment_2'>{{comment.comment_contents}}</p>
+    </div>
+    
+    {% empty %}
+        <p>아직 댓글이 없습니다.</p>
+    {% endfor %}
+</div>
+</div>
+{%endblock%}
+

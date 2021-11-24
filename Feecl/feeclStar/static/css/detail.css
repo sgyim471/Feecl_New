@@ -26,7 +26,7 @@
 
 .title .about {
     float: left;
-    width: 80%;
+    width: 100%;
 }
 
 .title .about ul{
@@ -49,7 +49,7 @@
 
 .subjectStar{
     font-size: 2.8em;
-    color:#76BDF5;
+    color:#68D6CB;
     line-height: auto;
     font-weight: 600;
     margin-left: 10px;
@@ -115,7 +115,7 @@
     width: auto;
     padding: 10px;
     height: 50px;
-    background: #76BDF5; 
+    background: #68D6CB; 
     color:aliceblue;
     border: none;
     font-weight: 600;
@@ -126,7 +126,7 @@
   }
 
   .comment_btn button:hover{
-    background: #5597ca; 
+    background: #5cb9b0; 
     color:aliceblue;
     transition: 0.4s;
 }

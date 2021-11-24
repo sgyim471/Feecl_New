@@ -7,6 +7,7 @@ class Subject_1(models.Model):
     subject_teacher = models.CharField('Teacher', max_length=50)
     subject_star = models.FloatField('Star',default=0, null=True)
     subject_credit = models.PositiveIntegerField(default=1)
+    subject_semester = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return "과목 : " + self.subject_name

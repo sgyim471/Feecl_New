@@ -4,17 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Feecl</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'css/main.css' %}">
-    
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/list_board.css' %}">
+    <link rel="stylesheet" href="{% static 'css/upload_board.css' %}">
+    <link rel="stylesheet" href="{% static 'css/post_detail.css' %}">
 </head>
 <body>
     <header>
         <a href="#" class='logo'>Feecl</a>
         <ul>
-            <li><a href='http://127.0.0.1:8000/starRating/'>StarRating</a></li>
-            <li><a href='#'>Board</a></li>
-            <li><a href="#">LogOut</a></li>
+            <li><a href='http://127.0.0.1:8000/starRating/1'>Rate&Comment</a></li>
+            <li><a href='http://127.0.0.1:8000/board'>Board</a></li>
+            <li><a href="{% url 'logout'%}">LogOut</a></li>
         </ul>
     </header>
     <main>

@@ -15,8 +15,8 @@
     <header>
         <a href="#" class='logo'>Feecl</a>
         <ul>
-            <li><a href='http://127.0.0.1:8000/starRating/2'>StarRating</a></li>
-            <li><a href='#'>Board</a></li>
+            <li><a href='http://127.0.0.1:8000/starRating/2'>Rate&Comment</a></li>
+            <li><a href='http://127.0.0.1:8000/board'>Board</a></li>
             <li><a href="{% url 'logout'%}">LogOut</a></li>
         </ul>
     </header>
@@ -40,6 +40,14 @@
                     $('#sp01').html("400/400");
                 }
             });
+        });
+
+        $(document).ready(function() {
+            $( "select[name=semester]" ).val( "{{ select_semester }}" );
+            $('select[name=semester]').change(function () {
+            console.log($('select[name=semester]').val());
+            month = $('select[name=semester]').val();
+            $('.form').submit();
         });
     </script>
 </body>
